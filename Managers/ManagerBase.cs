@@ -1,9 +1,8 @@
-﻿using System;
-using BonLib.DependencyInjection;
+﻿using BonLib.DependencyInjection;
 using BonLib.Events;
 using UnityEngine;
 
-namespace Gameplay.Managers
+namespace BonLib.Managers
 {
 
     public class ManagerBase : MonoBehaviour, IManager
@@ -13,8 +12,10 @@ namespace Gameplay.Managers
         public virtual void BindDependencies() {}
         public virtual void ResolveDependencies() {}
         public virtual void SubscribeToEvents() {}
+        public virtual void PreInitialize() {}
         public virtual void Initialize() {}
         public virtual void LateInitialize() {}
+        public virtual void Dispose() {}
     }
 
     public class Manager<T> : ManagerBase where T : Manager<T>
